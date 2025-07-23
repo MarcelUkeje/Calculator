@@ -1,0 +1,59 @@
+# YOUR CALCULATOR IS GOING TO CONTAIN FUNCTIONS FOR ALL OF THE BASIC MATH OPERATORS YOU TYPICALLY FIND ON CALCULATORS, SO START BY CREATING FUNCTIONS FOR THE FOLLOWING ITEMS AND TESTING THEM IN YOUR BROWSER’S CONSOLE.
+
+Add Subtract Multiply Divide (Don't forget to test the edge cases)
+
+What about cases when people just enter a sign and then press "="? Should I just not show it or should I display a "Argument Error" or some other thing.
+
+
+# CREATE A NEW FUNCTION OPERATE THAT TAKES AN OPERATOR AND TWO NUMBERS AND THEN CALLS ONE OF THE ABOVE FUNCTIONS ON THE NUMBERS.
+**I'm not doing this one just yet.
+
+Don’t worry about making them functional just yet.
+There should also be a display for the calculator. Go ahead and fill it with some dummy numbers so it looks correct.
+Add a “clear” button.
+
+# CREATE THE FUNCTIONS THAT POPULATE THE DISPLAY WHEN YOU CLICK THE DIGIT BUTTONS. YOU SHOULD STORE THE CONTENT OF THE DISPLAY (THE NUMBER) IN A VARIABLE FOR USE IN THE NEXT STEP.
+
+The number buttons will have event listeners that would then fill in the display div with what they represent. They'll use the "element.textContent" function.
+
+MAKE THE CALCULATOR WORK! YOU’LL NEED TO STORE THE FIRST AND SECOND NUMBERS INPUT BY THE USER AND THEN OPERATE() ON THEM WHEN THE USER PRESSES THE = BUTTON, ACCORDING TO THE OPERATOR THAT WAS SELECTED BETWEEN THE NUMBERS.
+
+Every button will have an event listener that shows the digit on the screen and the div that shows it keeps appending new numbers until an operator is pressed. Then the first number will be stored in a variable waiting for the same thing to occur for the second number.
+
+When the "=" key is pressed, it triggers the operate function, taking the two numbers as arguments. The result will be displayed on the screen.
+
+# YOUR CALCULATOR SHOULD NOT EVALUATE MORE THAN A SINGLE PAIR OF NUMBERS AT A TIME. FOR EXAMPLE, THIS IS HOW YOUR CALCULATOR SHOULD FUNCTION.
+
+Listen and take the 2 numbers as usual but once I detect an entry that is not a digit, the operate function is automatically called as though the "=" sign was pressed and this should keep happening until "=" is finally pressed.
+
+# YOU SHOULD ROUND ANSWERS WITH LONG DECIMALS SO THAT THEY DON’T OVERFLOW THE DISPLAY.
+
+From the tests that I have done, the browser automatically uses that "e" notation so I'm banking on it. If it doesn't work as expected, then i'll have to perform secondary calculations but then that would limit the numbers to a specified number of decimal places.
+
+# PRESSING “CLEAR” SHOULD WIPE OUT ANY EXISTING DATA. MAKE SURE THE USER IS REALLY STARTING FRESH AFTER PRESSING “CLEAR”.
+
+Pressing clear should change the textContent of the display div to an empty string ("") and then initialize all variables to 0.
+
+# DISPLAY A SNARKY ERROR MESSAGE IF THE USER TRIES TO DIVIDE BY 0… AND DON’T LET IT CRASH YOUR CALCULATOR!
+
+I think I already talked about handling this by displaying a custom error.
+
+# MAKE SURE THAT YOUR CALCULATOR ONLY RUNS AN OPERATION WHEN SUPPLIED WITH TWO NUMBERS AND AN OPERATOR BY THE USER. EXAMPLE: YOU ENTER A NUMBER (2), FOLLOWED BY AN OPERATOR BUTTON (+). YOU PRESS THE OPERATOR BUTTON (+) A SECOND CONSECUTIVE TIME. YOUR CALCULATOR SHOULD NOT EVALUATE THIS AS (2 + 2) AND SHOULD NOT DISPLAY THE RESULT (4). IF CONSECUTIVE OPERATOR BUTTONS ARE PRESSED, YOUR CALCULATOR SHOULD NOT RUN ANY EVALUATIONS, IT SHOULD ONLY TAKE THE LAST OPERATOR ENTERED TO BE USED FOR THE NEXT OPERATION.
+
+After the first number and the operator have been collected, listen for a new number but if an operator is entered instead, update the former operator with the latest value.
+
+# WHEN A RESULT IS DISPLAYED, PRESSING A NEW DIGIT SHOULD CLEAR THE RESULT AND START A NEW CALCULATION INSTEAD OF APPENDING THE DIGIT TO THE EXISTING RESULT. CHECK WHETHER THIS IS THE CASE ON YOUR CALCULATOR!
+
+After the operate function runs, pressing a new digit should trigger the same function that the clear button triggers.
+
+# USERS CAN GET FLOATING POINT NUMBERS IF THEY DO THE MATH REQUIRED TO GET ONE, BUT THEY CAN’T TYPE THEM IN YET. ADD A . BUTTON AND LET USERS INPUT DECIMALS! MAKE SURE YOU DON’T LET THEM TYPE MORE THAN ONE THOUGH, LIKE: 12.3.56.5. DISABLE THE . BUTTON IF THERE’S ALREADY A DECIMAL SEPARATOR IN THE DISPLAY.
+
+Add a "." button like the rest of the buttons and disable it until the operation function is called. 
+
+# ADD A “BACKSPACE” BUTTON, SO THE USER CAN UNDO THEIR LAST INPUT IF THEY CLICK THE WRONG NUMBER.
+
+I'm now thinking of storing the input into an array and then "popping" the input when they press the "DELETE" or "Backspace" button.
+
+# ADD KEYBOARD SUPPORT
+
+I'll just add event listeners for key presses that are represented on the calculator. Any other keys will not produce any input.
